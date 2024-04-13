@@ -24,61 +24,53 @@
     </div>
     <br>
     <!-- main -->
+
     <div class="columns">
         <!-- input and run button -->
         <div class="column is-one-third">
-            <div class="has-text-centered">
-                <h1 class="title is-4">Input</h1>
-                <form>
+            <br>
+            <div class="column is-three-fifths is-offset-one">
+                <div class="box">
                     <div class="field">
-                        <label class="label">Flavor</label>
+                        <label class="label">Anzahl an durchläufen:</label>
                         <div class="control">
-                            <input class="input" type="text" placeholder="Enter flavor">
+                            <input id="anzahlInput" class="input" type="text" value="10000">
                         </div>
                     </div>
+                    <br>
                     <div class="field">
-                        <label class="label">Quantity</label>
+                        <label class="label">Fixkosten pro Tag (€):</label>
                         <div class="control">
-                            <input class="input" type="number" placeholder="Enter quantity">
+                            <input id="fixkostenInput" class="input" type="text" value="100">
                         </div>
                     </div>
+                    <br>
                     <div class="field">
-                        <label class="label">Price</label>
+                        <label class="label">Variable Kosten pro Kunden (€):</label>
                         <div class="control">
-                            <input class="input" type="number" step="0.01" placeholder="Enter price">
+                            <input id="variableKostenInput" class="input" type="text" value="0.5">
                         </div>
                     </div>
+                    <br>
                     <div class="field">
-                        <label class="label">Discount</label>
+                        <label class="label">Basis Temperatur (°C)</label>
                         <div class="control">
-                            <input class="input" type="number" step="0.01" placeholder="Enter discount">
+                            <input id="temperaturInput" class="input" type="text" value="10-15">
                         </div>
                     </div>
-                    <div class="field">
-                        <label class="label">Total</label>
-                        <div class="control">
-                            <input class="input" type="number" step="0.01" placeholder="Enter total">
-                        </div>
+                    <br>
+                    <div>
+                        <button onclick="getInputs()" class="button is-primary">Run</button>
                     </div>
-                    <div class="field">
-                        <div class="control">
-                            <button class="button is-primary">Run</button>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-
-
-
+        </div>
         <!-- output -->
         <div class="column">
-            <div class="has-text-centered">
-                <h1 class="title is-4">Output</h1>
 
-            </div>
         </div>
     </div>
 </body>
-
+<script src="{{ url_for('static', filename='index.js') }}"></script>
 </html>
