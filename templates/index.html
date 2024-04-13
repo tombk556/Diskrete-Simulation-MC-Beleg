@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MC Simulation!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+</head>
+
+<body>
+    <!-- header -->
+    <div>
+        <header>
+            <nav class="navbar has-shadow is-white">
+                <div className='navbar-start'>
+                    <a class='navbar-item-img-max-height'>
+                        <h1 class="title is-2">Ice-Cream Business MC-Tool</h1>
+                    </a>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <br>
+    <!-- main -->
+    <div class="columns">
+        <!-- input and run button -->
+        <div class="column is-one-third">
+            <div class="has-text-centered">
+                <h1 class="title is-4">Input</h1>
+                <form>
+                    <div class="field">
+                        <label class="label">Flavor</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Enter flavor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Quantity</label>
+                        <div class="control">
+                            <input class="input" type="number" placeholder="Enter quantity">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Price</label>
+                        <div class="control">
+                            <input class="input" type="number" step="0.01" placeholder="Enter price">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Discount</label>
+                        <div class="control">
+                            <input class="input" type="number" step="0.01" placeholder="Enter discount">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Total</label>
+                        <div class="control">
+                            <input class="input" type="number" step="0.01" placeholder="Enter total">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-primary">Run</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+        <!-- output -->
+        <div class="column">
+            <div class="has-text-centered">
+                <h1 class="title is-4">Output</h1>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
