@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MC Simulation!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -29,7 +30,7 @@
         <!-- input and run button -->
         <div class="column is-one-third">
             <br>
-            <div class="column is-three-fifths is-offset">
+            <div class="column">
                 <div class="box">
                     <div class="field">
                         <label class="label">Anzahl an durchläufen:</label>
@@ -59,33 +60,44 @@
                         </div>
                     </div>
                     <br>
+                    <br>
                     <div>
                         <button class="button is-primary">Run</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- plot output -->
+        <!-- output -->
         <div class="column is-two-third">
             <br>
             <div class="column">
                 <div class="box">
-                    <div class="field">
-                        <label class="label">Profit:</label>
-                        <div class="control">
-                            <input id="outputProfit" class="input" type="text" readonly>
+                    <canvas id="chart" width="600" height="300"></canvas>
+
+                    <div class="columns">
+                        <div class="column">
+                            <label class="label">Profit:</label>
+                            <div class="control">
+                                <input id="outputProfit" class="input" type="text" readonly>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label class="label">Umsatz:</label>
+                            <div class="control">
+                                <input id="outputUmsatz" class="input" type="text" readonly>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label class="label">Anzahl an Gäste:</label>
+                            <div class="control">
+                                <input id="outputGaeste" class="input" type="text" readonly>
+                            </div>
                         </div>
                     </div>
-                    <div class="field">
-                        <label class="label">Umsatz:</label>
-                        <div class="control">
-                            <input id="outputUmsatz" class="input" type="text" readonly>
-                        </div>
-                    </div>
-                </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 <script src="{{ url_for('static', filename='index.js') }}"></script>

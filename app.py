@@ -12,14 +12,15 @@ def index():
 @app.route('/submit', methods=['POST'])
 def handle_data():
     data = request.get_json()
-    total_profit, total_revenue, mean_revenue, mean_profit, mean_temperaturen, days = run_modell(
+    total_profit, total_revenue, mean_revenue, mean_profit, mean_temperaturen, days, total_customers = run_modell(
         int(data["anzahl"]))
     
     mean_revenue = mean_revenue.tolist()
     mean_profit = mean_profit.tolist()
     mean_temperaturen = mean_temperaturen.tolist()
     days = days.tolist()
-    return jsonify({"total_profit": total_profit, 
+    return jsonify({"total_customers": total_customers,
+                    "total_profit": total_profit, 
                     "total_revenue": total_revenue,
                     "mean_revenue": mean_revenue,
                     "mean_profit": mean_profit,
