@@ -31,18 +31,46 @@ document.addEventListener('DOMContentLoaded', function() {
                 type: 'line',
                 data: {
                     labels: data.days,
-                    datasets: [{
-                        label: 'Temperatur',
+                    datasets: [
+                    {
+                        label: 'Mean Temperature',
                         data: data.mean_temperature,
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                         borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 1
+                        borderWidth: 1,
+                        yAxisID: 'y-temperature'
+                    },
+                    {
+                        label: 'Mean Revenue',
+                        data: data.mean_revenue,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1,
+                        yAxisID: 'y-finances'
+                    },
+                    {
+                        label: 'Mean Profit',
+                        data: data.mean_profit,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1,
+                        yAxisID: 'y-finances'
                     }]
                 },
                 options: {
                     scales: {
                         y: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            position: 'left',
+                            id: 'y-temperature'
+                        },
+                        yFinances: {
+                            beginAtZero: true,
+                            position: 'right',
+                            id: 'y-finances',
+                            grid: {
+                                drawOnChartArea: false // this ensures grid lines only for finances
+                            }
                         }
                     }
                 }
