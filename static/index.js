@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let temperatureChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: [],  // Initially empty or some predefined labels if you prefer
+            labels: [],
             datasets: [
                 {
-                    label: 'Mean Temperature',
+                    label: 'Temperatur (°C)',
                     data: [],
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255, 99, 132, 1)',
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     yAxisID: 'y-temperature'
                 },
                 {
-                    label: 'Mean Revenue',
+                    label: 'Umsatz (€)',
                     data: [],
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgba(54, 162, 235, 1)',
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     yAxisID: 'y-finances'
                 },
                 {
-                    label: 'Mean Profit',
+                    label: 'Gewinn (€)',
                     data: [],
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('outputUmsatz').value = data.total_revenue;
             document.getElementById('outputGaeste').value = data.total_customers;
 
-            // Update chart data
             temperatureChart.data.labels = data.days;
             temperatureChart.data.datasets[0].data = data.mean_temperature;
             temperatureChart.data.datasets[1].data = data.mean_revenue;
