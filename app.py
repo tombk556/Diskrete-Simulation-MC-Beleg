@@ -11,9 +11,15 @@ def index():
 
 @app.route('/submit', methods=['POST'])
 def handle_data():
+    # get the data from the post request and tranform them
     data = request.get_json()
+    basis_temperatur = [int(temp) for temp in data["temperatur"].split("-")]
+    n = int(data["anzahl"])
+    fixkosten_pro_tag = float(data["fixkosten"])
+    variable_kosten_pro_kunde = float(data["variableKosten"])
+    
     total_profit, total_revenue, mean_revenue, mean_profit, mean_temperaturen, days, total_customers = run_modell(
-        int(data["anzahl"]))
+        n=n, fixkosten_pro_tag=fixkosten_pro_tag, variable_kosten_pro_kunde=variable_kosten_pro_kunde, basis_temperatur=basis_temperatur)
     
     mean_revenue = mean_revenue.tolist()
     mean_profit = mean_profit.tolist()

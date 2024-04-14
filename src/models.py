@@ -75,7 +75,9 @@ class EisdielenGeschäft:
         return ergebnisse
 
 
-def run_modell(n: int):
+def run_modell(n: int, fixkosten_pro_tag: int = 100, 
+               variable_kosten_pro_kunde: float = 0.5,
+               basis_temperatur: list = [10, 15]):
     total_revenue = []
     total_profit = []
     mean_revenue = []
@@ -85,7 +87,12 @@ def run_modell(n: int):
 
     for _ in range(n):
         temp = Temperature().calculate_temperature()
-        df = EisdielenGeschäft(temp).run_modell()
+        df = EisdielenGeschäft(
+            temperaturen=temp,
+            fixkosten_pro_tag=fixkosten_pro_tag,
+            variable_kosten_pro_kunde=variable_kosten_pro_kunde,
+            basis_temperatur=basis_temperatur
+            ).run_modell()
 
         profit, revenue, temperature, customer = df['Profit/Loss'], df['Gesamtumsatz'], df['Temperatur'], df['Kundenanzahl']
         total_profit.append(sum(profit))
@@ -100,7 +107,9 @@ def run_modell(n: int):
     mean_profit = np.mean(mean_profit, axis=0)
     mean_temperaturen = np.mean(temperaturen, axis=0)
     total_profit = np.mean(total_profit).round(2)
+    total_profit = f"{total_profit:,.2f} Euro"
     total_revenue = np.mean(total_revenue).round(2)
+    total_revenue = f"{total_revenue:,.2f} Euro"
     total_customers = np.mean(customers).round()
     
     return total_profit, total_revenue, mean_revenue, mean_profit, mean_temperaturen, days, total_customers
