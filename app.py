@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, jsonify
-import numpy as np
 from src.models import run_modell
-app = Flask(__name__)
 
+app = Flask(__name__)
 
 @app.route('/')
 def index():
@@ -32,8 +31,6 @@ def handle_data():
                     "mean_profit": mean_profit,
                     "mean_temperature": mean_temperaturen,
                     "days": days}), 200
-
-
 
 
 if __name__ == '__main__':
