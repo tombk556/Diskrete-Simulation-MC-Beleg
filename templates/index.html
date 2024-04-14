@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MC Simulation!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <!-- header -->
+    <div>
+        <header>
+            <nav class="navbar has-shadow is-white">
+                <div className='navbar-start'>
+                    <a class='navbar-item-img-max-height'>
+                        <h1 class="title is-2">Ice-Cream Business MC-Tool</h1>
+                    </a>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <br>
+    <!-- main -->
+
+    <div class="columns">
+        <!-- input and run button -->
+        <div class="column is-one-third">
+            <br>
+            <div class="column">
+                <div class="box">
+                    <div class="field">
+                        <label class="label">Anzahl an durchläufen (Jahre):</label>
+                        <div class="control">
+                            <input id="anzahlInput" class="input" type="text" value="10000">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <label class="label">Fixkosten pro Tag (€):</label>
+                        <div class="control">
+                            <input id="fixkostenInput" class="input" type="text" value="100">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <label class="label">Variable Kosten pro Kunden (€):</label>
+                        <div class="control">
+                            <input id="variableKostenInput" class="input" type="text" value="0.5">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <label class="label">Basis Temperatur (°C)</label>
+                        <div class="control">
+                            <input id="temperaturInput" class="input" type="text" value="10-15">
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div>
+                        <button class="button is-primary">Run</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- output -->
+        <div class="column is-two-third">
+            <br>
+            <div class="column">
+                <div class="box">
+                    <canvas id="chart" width="600" height="290"></canvas>
+
+                    <div class="columns">
+                        <div class="column">
+                            <label class="label">Profit:</label>
+                            <div class="control">
+                                <input id="outputProfit" class="input" type="text" readonly>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label class="label">Umsatz:</label>
+                            <div class="control">
+                                <input id="outputUmsatz" class="input" type="text" readonly>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label class="label">Anzahl an Gäste:</label>
+                            <div class="control">
+                                <input id="outputGaeste" class="input" type="text" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+
+</html>
