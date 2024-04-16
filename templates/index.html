@@ -30,39 +30,69 @@
         <!-- input and run button -->
         <div class="column is-one-third">
             <br>
-            <div class="column">
-                <div class="box">
-                    <div class="field">
-                        <label class="label">Anzahl an durchläufen (Jahre):</label>
-                        <div class="control">
-                            <input id="anzahlInput" class="input" type="text" value="10000">
+            <div class="box">
+                <div class="columns">
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">Anzahl an durchläufen:</label>
+                            <div class="control">
+                                <input id="anzahlInput" class="input" type="text" value="1000">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <label class="label">Fixkosten pro Tag (€):</label>
+                            <div class="control">
+                                <input id="fixkostenInput" class="input" type="text" value="100">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <label class="label">Kosten pro Kunden (€):</label>
+                            <div class="control">
+                                <input id="variableKostenInput" class="input" type="text" value="0.5">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <label class="label">Basis Temperatur (°C)</label>
+                            <div class="control">
+                                <input id="temperaturInput" class="input" type="text" value="10-15">
+                            </div>
                         </div>
                     </div>
-                    <br>
-                    <div class="field">
-                        <label class="label">Fixkosten pro Tag (€):</label>
-                        <div class="control">
-                            <input id="fixkostenInput" class="input" type="text" value="100">
+                    <div class="column">
+                        <div class="field">
+                            <label class="label">Umsatz pro Kunde (€):</label>
+                            <div class="control">
+                                <input id="umsatzProKundeInput" class="input" type="text" value="3-5">
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="field">
-                        <label class="label">Variable Kosten pro Kunden (€):</label>
-                        <div class="control">
-                            <input id="variableKostenInput" class="input" type="text" value="0.5">
+                        <br>
+                        <div class="field">
+                            <label class="label">Kunden Basis:</label>
+                            <div class="control">
+                                <input id="kundenBasisInput" class="input" type="text" value="50-60">
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="field">
-                        <label class="label">Basis Temperatur (°C)</label>
-                        <div class="control">
-                            <input id="temperaturInput" class="input" type="text" value="10-15">
+                        <br>
+                        <div class="field">
+                            <label class="label">Kunden Temp. Faktor:</label>
+                            <div class="control">
+                                <input id="kundenTempFaktorInput" class="input" type="text" value="0.5">
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <br>
-                    <div>
-                        <button class="button is-primary">Run</button>
+                        <br>
+                        <div class="field">
+                            <label class="label">Heißes Jahr:</label>
+                            <div class="control">
+                                <input id="warmheissesJahrInput" class="input" type="text" value="Nein">
+                            </div>
+                        </div>
+                        <br>
+                        <div>
+                            <button class="button is-primary">Run</button>
+                        </div>
                     </div>
                 </div>
             </div>

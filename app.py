@@ -12,13 +12,30 @@ def index():
 def handle_data():
     # get the data from the post request and tranform them
     data = request.get_json()
-    basis_temperatur = [int(temp) for temp in data["temperatur"].split("-")]
     n = int(data["anzahl"])
+    basis_temperatur = [int(temp) for temp in data["temperatur"].split("-")]
     fixkosten_pro_tag = float(data["fixkosten"])
     variable_kosten_pro_kunde = float(data["variableKosten"])
+    umsatz_pro_kunde = [int(temp) for temp in data["umsatzProKunde"].split("-")]
+    kunden_basis = [int(temp) for temp in data["kundenBasis"].split("-")]
+    kunden_temp_faktor = float(data["kundenTempFaktor"])
+    
+    if str(data["warmheissesJahr"]) == "Ja":
+        warm_heiss_jahr = True
+    elif str(data["warmheissesJahr"]) == "Nein":
+        warm_heiss_jahr = False
+    else:
+        warm_heiss_jahr = False
     
     total_profit, total_revenue, mean_revenue, mean_profit, mean_temperaturen, days, total_customers = run_modell(
-        n=n, fixkosten_pro_tag=fixkosten_pro_tag, variable_kosten_pro_kunde=variable_kosten_pro_kunde, basis_temperatur=basis_temperatur)
+        n=n, 
+        fixkosten_pro_tag=fixkosten_pro_tag, 
+        variable_kosten_pro_kunde=variable_kosten_pro_kunde, 
+        basis_temperatur=basis_temperatur,
+        umsatz_pro_kunde=umsatz_pro_kunde,
+        kunden_basis=kunden_basis,
+        kunden_temp_faktor=kunden_temp_faktor,
+        warm_heiss_jahr=warm_heiss_jahr)
     
     mean_revenue = mean_revenue.tolist()
     mean_profit = mean_profit.tolist()
