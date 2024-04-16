@@ -64,23 +64,31 @@ class EisdielenGeschäft:
         return profit, gesamt_umsatz, self.temperaturen, kundenanzahl
 
 
-def run_modell(n: int, fixkosten_pro_tag: int = 100, 
+def run_modell(n: int, 
+               fixkosten_pro_tag: int = 100, 
+               basis_temperatur: list = [10, 15],
                variable_kosten_pro_kunde: float = 0.5,
-               basis_temperatur: list = [10, 15]):
+               umsatz_pro_kunde: list = [3, 5],
+               kunden_basis: list = [50, 60],
+               kunden_temp_faktor: float = 0.5,
+               warm_heiss_jahr: bool = False
+               ):
     total_revenue = []
     total_profit = []
     mean_revenue = []
     mean_profit = []
     temperaturen = []
     customers = []
-
     for _ in range(n):
-        temp = Temperature().calculate_temperature()
+        temp = Temperature(hot_year=warm_heiss_jahr).calculate_temperature()
         profit, revenue, temperature, customer = EisdielenGeschäft(
             temperaturen=temp,
             fixkosten_pro_tag=fixkosten_pro_tag,
             variable_kosten_pro_kunde=variable_kosten_pro_kunde,
-            basis_temperatur=basis_temperatur
+            basis_temperatur=basis_temperatur,
+            umsatz_pro_kunde=umsatz_pro_kunde,
+            kunden_basis=kunden_basis,
+            kunden_temperatur_faktor=kunden_temp_faktor
             ).run_modell()
 
         total_profit.append(sum(profit))
