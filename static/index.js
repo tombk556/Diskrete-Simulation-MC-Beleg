@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const temperatur = document.getElementById("temperaturInput").value;
     const umsatzProKunde = document.getElementById("umsatzProKundeInput").value;
     const kundenBasis = document.getElementById("kundenBasisInput").value;
-    const kundenTempFaktor = document.getElementById("kundenTempFaktorInput").value;
+    const tempSchwankugenInput = document.getElementById("tempSchwankugenInput").value;
     const warmheissesJahr = document.getElementById("warmheissesJahrInput").value;
 
     fetch("/submit", {
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
         temperatur,
         umsatzProKunde,
         kundenBasis,
-        kundenTempFaktor,
+        tempSchwankugenInput,
         warmheissesJahr,
       }),
     })

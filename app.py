@@ -18,7 +18,7 @@ def handle_data():
     variable_kosten_pro_kunde = float(data["variableKosten"])
     umsatz_pro_kunde = [int(temp) for temp in data["umsatzProKunde"].split("-")]
     kunden_basis = [int(temp) for temp in data["kundenBasis"].split("-")]
-    kunden_temp_faktor = float(data["kundenTempFaktor"])
+    temp_schw = int(data["tempSchwankugenInput"])
     
     if str(data["warmheissesJahr"]) == "Ja":
         warm_heiss_jahr = True
@@ -34,8 +34,8 @@ def handle_data():
         basis_temperatur=basis_temperatur,
         umsatz_pro_kunde=umsatz_pro_kunde,
         kunden_basis=kunden_basis,
-        kunden_temp_faktor=kunden_temp_faktor,
-        warm_heiss_jahr=warm_heiss_jahr)
+        warm_heiss_jahr=warm_heiss_jahr,
+        temp_schw=temp_schw)
     
     mean_revenue = mean_revenue.tolist()
     mean_profit = mean_profit.tolist()

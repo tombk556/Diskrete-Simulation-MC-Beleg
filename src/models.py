@@ -69,7 +69,7 @@ def run_modell(n: int,
                variable_kosten_pro_kunde: float = 0.5,
                umsatz_pro_kunde: list = [3, 5],
                kunden_basis: list = [50, 60],
-               kunden_temp_faktor: float = 0.5,
+               temp_schw: int = 2,
                warm_heiss_jahr: bool = False
                ):
     total_revenue = []
@@ -79,15 +79,14 @@ def run_modell(n: int,
     temperaturen = []
     customers = []
     for _ in range(n):
-        temp = Temperature(hot_year=warm_heiss_jahr).calculate_temperature()
+        temp = Temperature(hot_year=warm_heiss_jahr, temp_var=temp_schw).calculate_temperature()
         profit, revenue, temperature, customer = EisdielenGeschäft(
             temperaturen=temp,
             fixkosten_pro_tag=fixkosten_pro_tag,
             variable_kosten_pro_kunde=variable_kosten_pro_kunde,
             basis_temperatur=basis_temperatur,
             umsatz_pro_kunde=umsatz_pro_kunde,
-            kunden_basis=kunden_basis,
-            kunden_temperatur_faktor=kunden_temp_faktor
+            kunden_basis=kunden_basis
         ).run_modell()
 
         total_profit.append(sum(profit))
