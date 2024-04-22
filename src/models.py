@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 
 
 class Temperature:
@@ -64,8 +63,8 @@ class EisdielenGeschäft:
         return profit, gesamt_umsatz, self.temperaturen, kundenanzahl
 
 
-def run_modell(n: int, 
-               fixkosten_pro_tag: int = 100, 
+def run_modell(n: int,
+               fixkosten_pro_tag: int = 100,
                basis_temperatur: list = [10, 15],
                variable_kosten_pro_kunde: float = 0.5,
                umsatz_pro_kunde: list = [3, 5],
@@ -89,7 +88,7 @@ def run_modell(n: int,
             umsatz_pro_kunde=umsatz_pro_kunde,
             kunden_basis=kunden_basis,
             kunden_temperatur_faktor=kunden_temp_faktor
-            ).run_modell()
+        ).run_modell()
 
         total_profit.append(sum(profit))
         total_revenue.append(sum(revenue))
@@ -97,7 +96,7 @@ def run_modell(n: int,
         mean_profit.append(profit)
         temperaturen.append(temperature)
         customers.append(sum(customer))
-    
+
     days = np.arange(1, 366)
     mean_revenue = np.mean(mean_revenue, axis=0)
     mean_profit = np.mean(mean_profit, axis=0)
@@ -107,5 +106,5 @@ def run_modell(n: int,
     total_revenue = np.mean(total_revenue).round(2)
     total_revenue = f"{total_revenue:,.2f} Euro"
     total_customers = np.mean(customers).round()
-    
+
     return total_profit, total_revenue, mean_revenue, mean_profit, mean_temperaturen, days, total_customers
