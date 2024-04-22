@@ -1,5 +1,7 @@
 # Ice-Cream Business MC-Tool
 
+## Run the Application using Python: 
+
 ### Install the Python Packages
 
 ```sh
@@ -12,7 +14,9 @@ pip install -r requirements.txt
 gunicorn app:app -b 0.0.0.0:4000
 ```
 
-### OR: Run the App with Docker:
+Open the **0.0.0.0:4000**
+
+## Run the Application with Docker:
 
 ```sh
 docker-compose up
