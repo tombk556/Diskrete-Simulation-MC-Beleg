@@ -13,6 +13,11 @@ pip install -r requirements.txt
 ```sh
 gunicorn app:app -b 0.0.0.0:4000
 ```
+or: 
+
+```sh
+python app.py
+```
 
 Open the **0.0.0.0:4000**
 
@@ -21,3 +26,7 @@ Open the **0.0.0.0:4000**
 ```sh
 docker-compose up
 ```
+
+
+## Architecture and Information Flow
+![alt text](image.png)
