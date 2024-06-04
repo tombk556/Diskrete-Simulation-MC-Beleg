@@ -19,7 +19,7 @@ class Temperature:
 
 class EisdielenGeschäft:
 
-    def __init__(self, temperaturen: np.ndarray, fixkosten_pro_tag: int = 100, umsatz_temperatur_faktor: float = 0.5,
+    def __init__(self, temperaturen: np.ndarray, fixkosten_pro_tag: int = 100, umsatz_temperatur_faktor: float = 0.05,
                  variable_kosten_pro_kunde: float = 0.5, kunden_temperatur_faktor: int = 5,
                  basis_temperatur: list = [10, 15], kunden_basis: list = [50, 60], umsatz_pro_kunde: list = [3, 5]) -> None:
 
@@ -64,9 +64,9 @@ class EisdielenGeschäft:
 
 
 def run_modell(n: int,
-               fixkosten_pro_tag: int = 100,
+               fixkosten_pro_tag: int = 200,
                basis_temperatur: list = [10, 15],
-               variable_kosten_pro_kunde: float = 0.5,
+               variable_kosten_pro_kunde: float = 0.6,
                umsatz_pro_kunde: list = [3, 5],
                kunden_basis: list = [50, 60],
                temp_schw: int = 2,
@@ -101,9 +101,16 @@ def run_modell(n: int,
     mean_profit = np.mean(mean_profit, axis=0)
     mean_temperaturen = np.mean(temperaturen, axis=0)
     total_profit = np.mean(total_profit).round(2)
-    total_profit = f"{total_profit:,.2f} Euro"
+    total_profit_str = f"{total_profit:,.2f} Euro"
     total_revenue = np.mean(total_revenue).round(2)
-    total_revenue = f"{total_revenue:,.2f} Euro"
+    total_revenue_str = f"{total_revenue:,.2f} Euro"
     total_customers = np.mean(customers).round()
+    
+    costs_per_customer = (total_revenue - total_profit) / total_customers
+    revenue_per_customer = total_revenue / total_customers
+    profit_per_customer = total_profit / total_customers
+    print(f"Costs per customer: {costs_per_customer:.2f} Euro")
+    print(f"Revenue per customer: {revenue_per_customer:.2f} Euro")
+    print(f"Profit per customer: {profit_per_customer:.2f} Euro")
 
-    return total_profit, total_revenue, mean_revenue, mean_profit, mean_temperaturen, days, total_customers
+    return total_profit_str, total_revenue_str, mean_revenue, mean_profit, mean_temperaturen, days, total_customers
