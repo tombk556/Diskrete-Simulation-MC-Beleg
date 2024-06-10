@@ -30,3 +30,6 @@ docker-compose up
 
 ## Architecture and Information Flow
 ![alt text](image.png)
+
+
+Tom Bischopink © - HTWD 2024
